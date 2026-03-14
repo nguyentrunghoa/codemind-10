@@ -34,13 +34,15 @@ export default function EditorPane({ onAnalyzeError }) {
       if (!window.pyodideIsLoaded) {
         await new Promise((resolve, reject) => {
           const script = document.createElement('script');
-          script.src = 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js';
+          script.src = 'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js';
           script.onload = resolve;
           script.onerror = reject;
           document.head.appendChild(script);
         });
         
-        window.pyodide = await window.loadPyodide();
+        window.pyodide = await window.loadPyodide({
+          indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/'
+        });
         
         await window.pyodide.runPythonAsync(`
 import builtins
