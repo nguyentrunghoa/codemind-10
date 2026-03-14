@@ -107,14 +107,15 @@ export default function Chatbot({ activeLesson, errorToAnalyze }) {
   return (
     <div className="flex flex-col h-full bg-white relative">
       {/* Header */}
-      <div className="p-4 border-b border-gray-200 bg-white shadow-sm z-10 sticky top-0 flex gap-2 items-center">
-        <div className="bg-primary-100 text-primary-600 p-2 rounded-lg">
-          <Bot size={24} />
+      <div className="p-4 border-b border-gray-200 bg-white shadow-sm z-10 sticky top-0 flex gap-3 items-center">
+        <div className="bg-primary-100 text-primary-600 p-2.5 rounded-xl">
+          <Bot size={28} />
         </div>
         <div>
-          <h2 className="font-bold text-gray-800 text-lg">Gia sư CodeMind</h2>
-          <p className="text-xs text-green-600 font-medium flex items-center gap-1">
-            <span className="w-2 h-2 rounded-full bg-green-500 inline-block"></span> Online
+          <h2 className="font-extrabold text-gray-800 text-xl tracking-tight">CodeMind 10</h2>
+          <p className="text-xs text-gray-500 italic mt-0.5 leading-tight">Gia sư Tin học AI - Độc quyền THPT Lạng Giang số 1</p>
+          <p className="text-[11px] text-green-600 font-medium flex items-center gap-1.5 mt-1.5">
+            <span className="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse"></span> Đang hoạt động
           </p>
         </div>
       </div>

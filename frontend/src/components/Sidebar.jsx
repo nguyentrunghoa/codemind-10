@@ -1,23 +1,23 @@
 import { Book, ChevronRight, PlayCircle } from 'lucide-react';
 
 const LESSONS = [
-  { id: 16, title: "Ngôn ngữ lập trình bậc cao và Python", desc: "Làm quen với Python, môi trường lập trình và cách Python hoạt động.", topic: "Mở đầu" },
-  { id: 17, title: "Biến và lệnh gán", desc: "Cách lưu trữ dữ liệu trong bộ nhớ bằng biến.", topic: "Mở đầu" },
-  { id: 18, title: "Các lệnh vào ra đơn giản", desc: "Sử dụng input() và print() để giao tiếp với người dùng.", topic: "Mở đầu" },
-  { id: 19, title: "Câu lệnh rẽ nhánh if", desc: "Dạy máy tính cách ra quyết định điều kiện.", topic: "Cấu trúc rẽ nhánh" },
-  { id: 20, title: "Câu lệnh lặp for", desc: "Lặp với số lần biết trước trong Python.", topic: "Cấu trúc lặp" },
-  { id: 21, title: "Câu lệnh lặp while", desc: "Lặp theo điều kiện chưa biết trước số lần.", topic: "Cấu trúc lặp" },
-  { id: 22, title: "Kiểu dữ liệu danh sách", desc: "Lưu trữ nhiều giá trị trong một biến List.", topic: "Kiểu dữ liệu cấu trúc" },
-  { id: 23, title: "Một số lệnh làm việc với dữ liệu danh sách", desc: "Thêm, sửa, xóa, sắp xếp danh sách.", topic: "Kiểu dữ liệu cấu trúc" },
-  { id: 24, title: "Xấu ký tự", desc: "Xử lý văn bản và chuỗi (String).", topic: "Kiểu dữ liệu cấu trúc" },
-  { id: 25, title: "Một số lệnh làm việc với xấu ký tự", desc: "Các hàm cắt chuỗi, tìm kiếm chuỗi.", topic: "Kiểu dữ liệu cấu trúc" },
-  { id: 26, title: "Hàm trong Python", desc: "Đóng gói mã để tái sử dụng (def).", topic: "Chương trình con" },
-  { id: 27, title: "Tham số của hàm", desc: "Truyền dữ liệu vào và lấy kết quả ra từ hàm.", topic: "Chương trình con" },
-  { id: 28, title: "Phạm vi của biến", desc: "Biến cục bộ và biến toàn cục.", topic: "Chương trình con" },
-  { id: 29, title: "Nhận biết lỗi chương trình", desc: "Phân loại lỗi cú pháp, lỗi ngoại lệ, lỗi logic.", topic: "Kiểm thử và gỡ lỗi" },
-  { id: 30, title: "Kiểm thử và gỡ lỗi chương trình", desc: "Kỹ năng trace lỗi và debug.", topic: "Kiểm thử và gỡ lỗi" },
-  { id: 31, title: "Thực hành viết chương trình đơn giản", desc: "Vận dụng tổng hợp các kiến thức.", topic: "Thực hành" },
-  { id: 32, title: "Ôn tập lập trình Python", desc: "Tổng kết lại chủ đề 5.", topic: "Thực hành" }
+  { id: 1, title: "Ngôn ngữ lập trình bậc cao và Python", desc: "Làm quen với Python, môi trường lập trình và cách Python hoạt động.", topic: "Mở đầu" },
+  { id: 2, title: "Biến và lệnh gán", desc: "Cách lưu trữ dữ liệu trong bộ nhớ bằng biến.", topic: "Mở đầu" },
+  { id: 3, title: "Các lệnh vào ra đơn giản", desc: "Sử dụng input() và print() để giao tiếp với người dùng.", topic: "Mở đầu" },
+  { id: 4, title: "Câu lệnh rẽ nhánh if", desc: "Dạy máy tính cách ra quyết định điều kiện.", topic: "Cấu trúc rẽ nhánh" },
+  { id: 5, title: "Câu lệnh lặp for", desc: "Lặp với số lần biết trước trong Python.", topic: "Cấu trúc lặp" },
+  { id: 6, title: "Câu lệnh lặp while", desc: "Lặp theo điều kiện chưa biết trước số lần.", topic: "Cấu trúc lặp" },
+  { id: 7, title: "Kiểu dữ liệu danh sách", desc: "Lưu trữ nhiều giá trị trong một biến List.", topic: "Kiểu dữ liệu cấu trúc" },
+  { id: 8, title: "Một số lệnh làm việc với dữ liệu danh sách", desc: "Thêm, sửa, xóa, sắp xếp danh sách.", topic: "Kiểu dữ liệu cấu trúc" },
+  { id: 9, title: "Xâu ký tự", desc: "Xử lý văn bản và chuỗi (String).", topic: "Kiểu dữ liệu cấu trúc" },
+  { id: 10, title: "Một số lệnh làm việc với xâu ký tự", desc: "Các hàm cắt chuỗi, tìm kiếm chuỗi.", topic: "Kiểu dữ liệu cấu trúc" },
+  { id: 11, title: "Hàm trong Python", desc: "Đóng gói mã để tái sử dụng (def).", topic: "Chương trình con" },
+  { id: 12, title: "Tham số của hàm", desc: "Truyền dữ liệu vào và lấy kết quả ra từ hàm.", topic: "Chương trình con" },
+  { id: 13, title: "Phạm vi của biến", desc: "Biến cục bộ và biến toàn cục.", topic: "Chương trình con" },
+  { id: 14, title: "Nhận biết lỗi chương trình", desc: "Phân loại lỗi cú pháp, lỗi ngoại lệ, lỗi logic.", topic: "Kiểm thử và gỡ lỗi" },
+  { id: 15, title: "Kiểm thử và gỡ lỗi chương trình", desc: "Kỹ năng trace lỗi và debug.", topic: "Kiểm thử và gỡ lỗi" },
+  { id: 16, title: "Thực hành viết chương trình đơn giản", desc: "Vận dụng tổng hợp các kiến thức.", topic: "Thực hành" },
+  { id: 17, title: "Ôn tập lập trình Python", desc: "Tổng kết lại chủ đề 5.", topic: "Thực hành" }
 ];
 
 // Group summaries
@@ -54,11 +54,11 @@ export default function Sidebar({ activeLesson, onSelectLesson }) {
   return (
     <div className="h-full flex flex-col bg-white">
       <div className="p-4 border-b border-gray-200 bg-primary-50 px-5">
-        <h1 className="text-xl font-bold flex items-center gap-2 text-primary-700">
-          <Book className="text-primary-600" /> 
-          Lộ trình Tin học 10
+        <h1 className="text-2xl font-black flex items-center gap-2 text-primary-800 tracking-tight">
+          <Book className="text-primary-600" size={24} /> 
+          CodeMind 10
         </h1>
-        <p className="text-sm text-gray-500 mt-1 mb-1">Chủ đề 5 - Kết nối tri thức</p>
+        <p className="text-[11px] text-primary-600/80 mt-1 mb-1 italic leading-tight font-medium">Gia sư Tin học AI - Độc quyền THPT Lạng Giang số 1</p>
       </div>
       
       <div className="flex-1 overflow-y-auto px-4 py-5 scrollbar-thin">
@@ -109,7 +109,7 @@ export default function Sidebar({ activeLesson, onSelectLesson }) {
       </div>
       
       {/* Nút Học tiếp cố định ở dưới cùng */}
-      <div className="p-4 border-t border-gray-200 bg-white">
+      <div className="p-4 border-t border-gray-200 bg-white flex flex-col gap-3">
         <button 
           onClick={handleContinue}
           className="w-full bg-primary-600 hover:bg-primary-500 text-white font-medium py-3 px-4 rounded-xl flex justify-center items-center gap-2 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
@@ -117,6 +117,9 @@ export default function Sidebar({ activeLesson, onSelectLesson }) {
           <PlayCircle size={20} />
           {activeLesson ? 'Chuyển bài tiếp theo' : 'Bắt đầu học ngay'}
         </button>
+        <div className="text-center text-[10px] text-gray-400 font-medium">
+          © Copyright by Giáo viên Trần Thị Ngà
+        </div>
       </div>
     </div>
   );
