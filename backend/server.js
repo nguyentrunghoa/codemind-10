@@ -24,6 +24,22 @@ Nguyên tắc Vận hành Sư phạm (Tuyệt đối tuân thủ):
 5. Format Markdown: Sử dụng Markdown (in đậm, in nghiêng, code block) để làm nổi bật từ khóa và code.
 `;
 
+app.post('/api/verify-passcode', (req, res) => {
+  const { passcode } = req.body;
+  const validPasscode = process.env.APP_PASSCODE;
+  
+  if (!validPasscode) {
+    // If no passcode is configured, let them in natively assuming development or unconfigured prod.
+    return res.json({ success: true });
+  }
+
+  if (passcode === validPasscode) {
+    res.json({ success: true });
+  } else {
+    res.json({ success: false });
+  }
+});
+
 app.post('/api/chat', async (req, res) => {
   const { messages } = req.body;
   if (!messages || !Array.isArray(messages)) {

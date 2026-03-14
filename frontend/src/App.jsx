@@ -1,13 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import Chatbot from './components/Chatbot';
 import EditorPane from './components/EditorPane';
+import Login from './components/Login';
 import { Menu, MessageSquare, Code } from 'lucide-react';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return sessionStorage.getItem('codemind_auth') === 'true';
+  });
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeTab, setActiveTab] = useState('chat'); // 'sidebar', 'chat', 'editor'
   const [errorToAnalyze, setErrorToAnalyze] = useState(null);
+
+  const handleLoginSuccess = () => {
+    sessionStorage.setItem('codemind_auth', 'true');
+    setIsAuthenticated(true);
+  };
 
   const handleLessonSelect = (lesson) => {
     setActiveLesson(lesson);
@@ -23,6 +32,10 @@ function App() {
       setActiveTab('chat');
     }
   };
+
+  if (!isAuthenticated) {
+    return <Login onLoginSuccess={handleLoginSuccess} />;
+  }
 
   return (
     <div className="h-screen w-full flex flex-col md:flex-row overflow-hidden bg-gray-50 text-gray-800">
