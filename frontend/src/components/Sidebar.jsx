@@ -27,11 +27,10 @@ const TOPIC_SUMMARIES = {
   "Cấu trúc lặp": "Tự động hóa các tác vụ lặp đi lặp lại.",
   "Kiểu dữ liệu cấu trúc": "Làm việc với List và String - thao tác nhiều dữ liệu cùng lúc.",
   "Chương trình con": "Đóng gói mã lệnh thành các Hàm (Def) để dễ quản lý.",
-  "Kiểm thử và gỡ lỗi": "Truy tìm lỗi và đảm bảo phần mềm hoạt động đúng.",
   "Thực hành": "Ôn tập và vận dụng tổng hợp để viết ứng dụng thực tế."
 };
 
-export default function Sidebar({ activeLesson, onSelectLesson }) {
+export default function Sidebar({ activeLesson, onSelectLesson, onOpenInstruction }) {
   
   // Group lessons by generic topic
   const groupedLessons = LESSONS.reduce((acc, lesson) => {
@@ -110,6 +109,16 @@ export default function Sidebar({ activeLesson, onSelectLesson }) {
       
       {/* Nút Học tiếp cố định ở dưới cùng */}
       <div className="p-4 border-t border-gray-200 bg-white flex flex-col gap-3">
+        {/* Nút Hướng dẫn */}
+        <button 
+          onClick={onOpenInstruction}
+          className="w-full bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium py-2.5 px-4 rounded-xl flex justify-center items-center gap-2 transition-all border border-blue-200"
+        >
+          <Book className="w-5 h-5" />
+          Hướng dẫn sử dụng
+        </button>
+
+        {/* Nút Chuyển Bài */}
         <button 
           onClick={handleContinue}
           className="w-full bg-primary-600 hover:bg-primary-500 text-white font-medium py-3 px-4 rounded-xl flex justify-center items-center gap-2 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"

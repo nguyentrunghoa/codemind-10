@@ -1,8 +1,6 @@
-import { useState, useEffect } from 'react';
-import Sidebar from './components/Sidebar';
-import Chatbot from './components/Chatbot';
 import EditorPane from './components/EditorPane';
 import Login from './components/Login';
+import InstructionModal from './components/InstructionModal';
 import { Menu, MessageSquare, Code } from 'lucide-react';
 
 function App() {
@@ -12,6 +10,7 @@ function App() {
   const [activeLesson, setActiveLesson] = useState(null);
   const [activeTab, setActiveTab] = useState('chat'); // 'sidebar', 'chat', 'editor'
   const [errorToAnalyze, setErrorToAnalyze] = useState(null);
+  const [isInstructionOpen, setIsInstructionOpen] = useState(false);
 
   const handleLoginSuccess = () => {
     sessionStorage.setItem('codemind_auth', 'true');
@@ -67,7 +66,7 @@ function App() {
         
         {/* Sidebar Pane (20% Desktop) */}
         <div className={`${activeTab === 'sidebar' ? 'block' : 'hidden'} md:block w-full md:w-1/5 h-full border-r border-gray-200 bg-white shadow-sm z-10`} >
-          <Sidebar activeLesson={activeLesson} onSelectLesson={handleLessonSelect} />
+          <Sidebar activeLesson={activeLesson} onSelectLesson={handleLessonSelect} onOpenInstruction={() => setIsInstructionOpen(true)} />
         </div>
 
         {/* Chatbot Pane (40% Desktop) */}
@@ -80,6 +79,8 @@ function App() {
           <EditorPane onAnalyzeError={handleErrorAnalysis} />
         </div>
       </div>
+
+      <InstructionModal isOpen={isInstructionOpen} onClose={() => setIsInstructionOpen(false)} />
     </div>
   );
 }
