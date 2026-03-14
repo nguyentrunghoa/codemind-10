@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import Sidebar from './components/Sidebar';
+import Chatbot from './components/Chatbot';
 import EditorPane from './components/EditorPane';
 import Login from './components/Login';
 import InstructionModal from './components/InstructionModal';
