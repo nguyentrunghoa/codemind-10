@@ -123,7 +123,7 @@ export default function Chatbot({ activeLesson, errorToAnalyze }) {
       {/* Chat Area */}
       <div 
         ref={scrollRef} 
-        className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50 pb-[80px]"
+        className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50"
       >
         {messages.map((msg, idx) => (
           <div key={idx} className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -168,7 +168,7 @@ export default function Chatbot({ activeLesson, errorToAnalyze }) {
       </div>
 
       {/* Input Area */}
-      <div className="p-4 bg-white border-t border-gray-200 absolute bottom-0 left-0 right-0 z-10 w-full drop-shadow-[0_-4px_10px_rgba(0,0,0,0.02)]">
+      <div className="p-4 bg-white border-t border-gray-200 shrink-0 z-10 drop-shadow-[0_-4px_10px_rgba(0,0,0,0.02)]">
         <div className="flex bg-gray-50 rounded-xl border border-gray-200 p-1 focus-within:ring-2 focus-within:ring-primary-300 focus-within:border-primary-400 transition-all">
           <textarea
             value={input}
