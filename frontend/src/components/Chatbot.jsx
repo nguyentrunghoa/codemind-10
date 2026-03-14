@@ -57,10 +57,20 @@ export default function Chatbot({ activeLesson, errorToAnalyze }) {
     setIsLoading(true);
 
     // Format for Gemini API (user/model)
-    const formattedHistory = chatHistory.map(msg => ({
+    let formattedHistory = chatHistory.map(msg => ({
       role: msg.role === 'CodeMind' ? 'model' : 'user',
       parts: [{ text: msg.text }]
     }));
+
+    // Gemini API BẮT BUỘC tin nhắn đầu tiên trong mảng Lịch sử chat (history) phải xuất phát từ 'user'
+    // Do tin nhắn chào sân của ứng dụng luôn là 'model' (CodeMind), API sẽ ném lỗi 400.
+    // Cách xử lý khéo léo: Chèn tự động một câu chào giả từ 'user' lên đầu mảng để tạo đà (chỉ xử lý ngầm dưới API)
+    if (formattedHistory.length > 0 && formattedHistory[0].role === 'model') {
+      formattedHistory = [
+        { role: 'user', parts: [{ text: 'Xin chào gia sư CodeMind, hãy bắt đầu buổi học nào!' }] },
+        ...formattedHistory
+      ];
+    }
 
     try {
       const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
