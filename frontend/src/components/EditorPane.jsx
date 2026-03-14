@@ -20,23 +20,78 @@ export default function EditorPane({ onAnalyzeError }) {
     return () => clearTimeout(timer);
   }, [code]);
 
-  const handleRunCode = () => {
-    setOutput('> Đang biên dịch...\n');
+  const handleRunCode = async () => {
+    if (!code.trim()) {
+      setOutput('> Code rỗng. Vui lòng gõ một vài dòng lệnh Python nhé!');
+      setIsOutputError(true);
+      return;
+    }
+
+    setOutput('> Đang khởi tạo môi trường Python (lần đầu có thể mất 3-5 giây)...\n');
     setIsOutputError(false);
 
-    // 4. Input validation (simulate Syntax Error)
-    setTimeout(() => {
-      if (code.includes('print ') && !code.includes('(')) {
-        setOutput('> Đang biên dịch...\n\n❌ SyntaxError: Tên hàm print() thiếu dấu ngoặc đơn.\nDòng: Có thể bạn đã dùng Python 2 syntax thay vì Python 3.');
-        setIsOutputError(true);
-      } else if (!code.trim()) {
-        setOutput('> Code rỗng. Vui lòng gõ một vài dòng Python nhé!');
-        setIsOutputError(true);
-      } else {
-        setOutput('> Đang biên dịch...\nHello, Tin học 10!\n\n✅ Chương trình chạy thành công (Exit Code 0).');
-        setIsOutputError(false);
+    try {
+      if (!window.pyodideIsLoaded) {
+        await new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js';
+          script.onload = resolve;
+          script.onerror = reject;
+          document.head.appendChild(script);
+        });
+        
+        window.pyodide = await window.loadPyodide();
+        
+        await window.pyodide.runPythonAsync(`
+import builtins
+import js
+import sys
+
+class JsOutput:
+    def write(self, text):
+        js.appendOutput(text)
+    def flush(self):
+        pass
+
+sys.stdout = JsOutput()
+sys.stderr = JsOutput()
+
+def custom_input(prompt_text=""):
+    res = js.prompt(prompt_text)
+    if res is None: 
+        raise EOFError("Người dùng đã hủy nhập lệnh (User canceled input)")
+    js.appendOutput(prompt_text + str(res) + "\\n")
+    return res
+
+builtins.input = custom_input
+        `);
+        window.pyodideIsLoaded = true;
       }
-    }, 800);
+
+      // Chuẩn bị thực thi
+      let currentOutput = "> Đang thực thi lệnh...\n\n";
+      setOutput(currentOutput);
+      
+      window.appendOutput = (text) => {
+        currentOutput += text;
+        setOutput(currentOutput);
+      };
+
+      await window.pyodide.runPythonAsync(code);
+      
+      currentOutput += '\n\n✅ Chương trình chạy thành công (Exit Code 0).';
+      setOutput(currentOutput);
+      setIsOutputError(false);
+    } catch (err) {
+      console.error(err);
+      let errorMsg = err.message || String(err);
+      if (window.appendOutput) {
+         window.appendOutput('\n\n❌ Lỗi thực thi:\n' + errorMsg);
+      } else {
+         setOutput(prev => prev + '\n\n❌ Lỗi thực thi:\n' + errorMsg);
+      }
+      setIsOutputError(true);
+    }
   };
 
   const toggleTheme = () => {
