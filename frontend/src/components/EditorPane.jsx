@@ -32,16 +32,9 @@ export default function EditorPane({ onAnalyzeError }) {
 
     try {
       if (!window.pyodideIsLoaded) {
-        await new Promise((resolve, reject) => {
-          const script = document.createElement('script');
-          script.src = 'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js';
-          script.onload = resolve;
-          script.onerror = reject;
-          document.head.appendChild(script);
-        });
-        
+        // Pyodide script is already loaded globally via index.html
         window.pyodide = await window.loadPyodide({
-          indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.23.4/full/'
+          indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/'
         });
         
         await window.pyodide.runPythonAsync(`
