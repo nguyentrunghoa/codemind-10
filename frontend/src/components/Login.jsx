@@ -53,12 +53,14 @@ export default function Login({ onLoginSuccess }) {
           <img 
             src="/logo.png" 
             alt="Logo THPT Lạng Giang 1" 
-            className="w-28 h-28 mx-auto mb-5 object-contain drop-shadow-sm hover:scale-105 transition-transform duration-500" 
+            className="w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-4 sm:mb-5 object-contain drop-shadow-sm hover:scale-105 transition-transform duration-500" 
           />
-          <h1 className="text-3xl font-black text-gray-800 tracking-tight mb-2">CodeMind 10</h1>
-          <p className="text-[14px] text-gray-500 italic font-medium leading-relaxed max-w-[350px] mx-auto">
-            Gia sư Tin học AI - Độc quyền THPT Lạng Giang số 1
-          </p>
+          <h1 className="text-2xl sm:text-3xl font-black text-gray-800 tracking-tight mb-2">CodeMind 10</h1>
+          <div className="w-full flex justify-center">
+             <p className="text-[11px] sm:text-[13px] text-gray-500 italic font-medium leading-relaxed whitespace-nowrap">
+               Gia sư Tin học AI - Độc quyền THPT Lạng Giang số 1
+             </p>
+          </div>
         </div>
 
         <form onSubmit={handleSubmit}>
