@@ -56,7 +56,7 @@ export default function Login({ onLoginSuccess }) {
             className="w-28 h-28 mx-auto mb-5 object-contain drop-shadow-sm hover:scale-105 transition-transform duration-500" 
           />
           <h1 className="text-3xl font-black text-gray-800 tracking-tight mb-2">CodeMind 10</h1>
-          <p className="text-[13px] text-gray-500 italic font-medium leading-relaxed max-w-[280px] mx-auto">
+          <p className="text-[14px] text-gray-500 italic font-medium leading-relaxed max-w-[350px] mx-auto">
             Gia sư Tin học AI - Độc quyền THPT Lạng Giang số 1
           </p>
         </div>
