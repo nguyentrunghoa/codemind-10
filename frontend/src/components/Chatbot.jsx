@@ -113,7 +113,7 @@ export default function Chatbot({ activeLesson, errorToAnalyze }) {
         </div>
         <div>
           <h2 className="font-extrabold text-gray-800 text-xl tracking-tight">CodeMind 10</h2>
-          <p className="text-xs text-gray-500 italic mt-0.5 leading-tight">Gia sư Tin học AI - Độc quyền THPT Lạng Giang số 1</p>
+          <p className="text-xs text-gray-500 italic mt-0.5 leading-tight">Gia sư Tin học AI - Bản quyền THPT Lạng Giang số 1</p>
           <p className="text-[11px] text-green-600 font-medium flex items-center gap-1.5 mt-1.5">
             <span className="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse"></span> Đang hoạt động
           </p>

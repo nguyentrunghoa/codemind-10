@@ -58,7 +58,7 @@ export default function Login({ onLoginSuccess }) {
           <h1 className="text-2xl sm:text-3xl font-black text-gray-800 tracking-tight mb-2">CodeMind 10</h1>
           <div className="w-full flex justify-center">
              <p className="text-[11px] sm:text-[13px] text-gray-500 italic font-medium leading-relaxed whitespace-nowrap">
-               Gia sư Tin học AI - Độc quyền THPT Lạng Giang số 1
+               Gia sư Tin học AI - Bản quyền THPT Lạng Giang số 1
              </p>
           </div>
         </div>

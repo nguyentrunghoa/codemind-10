@@ -57,7 +57,7 @@ export default function Sidebar({ activeLesson, onSelectLesson, onOpenInstructio
           <Book className="text-primary-600" size={24} /> 
           CodeMind 10
         </h1>
-        <p className="text-[11px] text-primary-600/80 mt-1 mb-1 italic leading-tight font-medium">Gia sư Tin học AI - Độc quyền THPT Lạng Giang số 1</p>
+        <p className="text-[11px] text-primary-600/80 mt-1 mb-1 italic leading-tight font-medium">Gia sư Tin học AI - Bản quyền THPT Lạng Giang số 1</p>
       </div>
       
       <div className="flex-1 overflow-y-auto px-4 py-5 scrollbar-thin">
