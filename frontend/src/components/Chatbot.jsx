@@ -28,7 +28,7 @@ export default function Chatbot({ activeLesson, errorToAnalyze }) {
     if (activeLesson) {
       setMessages([{
         role: 'CodeMind',
-        text: `Chào bạn, chúng ta cùng tìm hiểu **Bài ${activeLesson.id}: ${activeLesson.title}** nhé! 📚\n\nBạn muốn làm gì tiếp theo?\n\n**[1]** Học bài mới\n**[2]** Ôn tập kiến thức cũ\n**[3]** Săn Bug (Sửa lỗi code đang làm)`
+        text: `Chào bạn, chúng ta cùng tìm hiểu **Bài ${activeLesson.id}: ${activeLesson.title}** nhé! 📚\n\nBạn muốn làm gì tiếp theo?\n\n**[1]** Ôn tập kiến thức cũ\n**[2]** Học bài mới\n**[3]** Săn Bug (Sửa lỗi code đang làm)`
       }]);
     }
   }, [activeLesson]);
